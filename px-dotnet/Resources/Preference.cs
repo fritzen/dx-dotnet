@@ -138,7 +138,7 @@ namespace MercadoPago.Resources
         private float? _marketplace_fee;
         private DifferentialPricing? _differential_pricing;
         private long? _sponsor_id;
-        private List<ProcessingMode> _processing_modes;
+        private List<DataStructures.Preference.ProcessingMode> _processing_modes;
         private bool? _binary_mode;
         private List<Tax> _taxes;
         private JObject _metadata;
@@ -517,13 +517,13 @@ namespace MercadoPago.Resources
         /// <summary>
         /// Processing modes
         /// </summary>
-        public List<ProcessingMode> ProcessingModes
+        public List<DataStructures.Preference.ProcessingMode> ProcessingModes
         {
             get
             {
                 if (_processing_modes == null)
                 {
-                    _processing_modes = new List<ProcessingMode>();
+                    _processing_modes = new List<DataStructures.Preference.ProcessingMode>();
                 }
                 return _processing_modes;
             }

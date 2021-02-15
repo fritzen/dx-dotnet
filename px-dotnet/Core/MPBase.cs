@@ -619,16 +619,6 @@ namespace MercadoPago
                 requestOptions = new MPRequestOptions();
             }
 
-            if (useCache)
-            {
-                response = MPCache.GetFromCache(cacheKey);
-
-                if (response != null)
-                {
-                    response.IsFromCache = true;
-                }
-            }
-
             if (response == null)
             {
                 response = new MPRESTClient().ExecuteRequest(
@@ -638,14 +628,6 @@ namespace MercadoPago
                     payload,
                     requestOptions);
 
-                if (useCache)
-                {
-                    MPCache.AddToCache(cacheKey, response);
-                }
-                else
-                {
-                    MPCache.RemoveFromCache(cacheKey);
-                }
             }
 
             return response;
@@ -818,7 +800,7 @@ namespace MercadoPago
 
             using (var writer = new System.IO.StringWriter())
             {
-                ObjectDumper.Dumper.Dump(this, "Object Dumper", writer);
+                //ObjectDumper.Dumper.Dump(this, "Object Dumper", writer);
                 System.Diagnostics.Trace.WriteLine("Resource " + writer); 
             }
         }
